@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:09:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/26 17:01:48 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:14:31 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	main()
 	printf("enter\n");
 	//data->img = mlx_new_image(vars.mlx, x, y);		//genera immagine
 	data->img = mlx_xpm_file_to_image(vars.mlx, path, &img_width, &img_height);		//genera immagine con file .xpm inserito
+	data->img = mlx_xpm_file_to_image(vars.mlx, path, &img_width, &img_height);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, &data->endian);		//gestice in maniera corretta dimensione e posizione dei pixel
 	while (i < x - 50)
 	{
