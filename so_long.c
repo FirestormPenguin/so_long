@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:09:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/26 17:14:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:41:03 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ int	close_win(t_vars *vars)
 	return (0);
 }
 
+int render_next_frame(t_vars vars)
+{
+	void *img;
+	mlx_destroy_window(vars.mlx, vars.win);
+	vars.win = mlx_new_window(vars.mlx, 640, 480, "Finestra!");
+	printf("enter\n");
+	img = mlx_new_image(vars.mlx, 640, 480);
+	return (0);
+}
+
 int	main()
 {
 	t_data	*data;
@@ -78,5 +88,6 @@ int	main()
 	mlx_key_hook(vars.win, print, &vars);				//trigger evento stampa "press" nel terminale a pressione di tasto
 	mlx_hook(vars.win, 17, 0, close_win, &vars);		//trigger evento chiusura finestra pressione x rossa
 	mlx_key_hook(vars.win, close_win, &vars);			//trigger evento chiusura finestra alla pressione di un tasto
+	mlx_loop_hook(vars.mlx, render_next_frame, &vars);
 	mlx_loop(vars.mlx);			//gestione loop finestra tenuta attiva
 }
