@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:09:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/26 18:50:00 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:53:33 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int	close_win(t_vars *vars)
 int render_next_frame(t_vars vars)
 {
 	void *img;
-	mlx_destroy_window(vars.mlx, vars.win);
 	vars.win = mlx_new_window(vars.mlx, 640, 480, "Finestra!");
 	printf("enter\n");
 	img = mlx_new_image(vars.mlx, 640, 480);
