@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:13:49 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/29 20:17:07 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:21:59 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ int count_line(char *path)
 	free (str);
 	close (fd);
 	return (i - 1);
+}
+
+void check_errors(t_vars *vars)
+{
+	
 }
 
 int get_map(char *path, t_vars *vars)
