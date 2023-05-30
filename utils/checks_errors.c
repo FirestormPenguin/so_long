@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 18:26:17 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:33:51 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ void error(t_vars *vars)
 	printf("Error\n");
 	free_vars(vars);
 	exit(0);
+}
+
+int	checks_format(t_vars *vars)
+{
+	int i;
+
+	
 }
 
 int checks_vars(t_vars *vars)
@@ -68,5 +75,7 @@ void check_errors(t_vars *vars)
 		i++;
 	}
 	if (checks_vars(vars) == 1)
+		error(vars);
+	if (checks_format(vars) == 1)
 		error(vars);
 }
