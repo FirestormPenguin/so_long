@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 18:33:51 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:50:10 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,21 @@ void error(t_vars *vars)
 int	checks_format(t_vars *vars)
 {
 	int i;
+	int j;
 
-	
+	i = 0;
+	while (vars->map[i])
+	{
+		j = 0;
+		while (vars->map[i][j])
+		{
+			j++;
+		}
+		if (j != vars->column + 1)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int checks_vars(t_vars *vars)

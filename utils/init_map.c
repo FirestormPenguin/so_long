@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:13:49 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 18:26:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:44:25 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int get_map(char *path, t_vars *vars)
 		printf("%s", vars->map[i]);
 		i++;
 	}
-	printf("\n");
 	printf("Line: %d\nColumn: %d\n", vars->line, vars->column);
 	close (fd);
 	check_errors(vars);
