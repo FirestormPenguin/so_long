@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 18:02:15 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:25:57 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ typedef struct s_vars {
 }			t_vars;
 
 int get_map(char *path, t_vars *vars);
-
-void struct_init(t_vars *vars);
+int count_line(char *path);
+int count_column(char *path);
 
 void error(t_vars *vars);
+int checks_vars(t_vars *vars);
+void check_errors(t_vars *vars);
 
+void struct_init(t_vars *vars);
 void free_vars(t_vars *vars);

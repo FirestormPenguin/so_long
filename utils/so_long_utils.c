@@ -6,11 +6,11 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:41:39 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 18:10:35 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:26:40 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "./../so_long.h"
 
 void free_vars(t_vars *vars)
 {
@@ -24,13 +24,6 @@ void free_vars(t_vars *vars)
 	}
 	free(vars->map);
 	free(vars);
-}
-
-void error(t_vars *vars)
-{
-	printf("Error\n");
-	free_vars(vars);
-	exit(0);
 }
 
 void struct_init(t_vars *vars)
