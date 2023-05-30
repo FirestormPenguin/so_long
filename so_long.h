@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 17:01:29 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:02:15 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,5 @@ int get_map(char *path, t_vars *vars);
 void struct_init(t_vars *vars);
 
 void error(t_vars *vars);
+
+void free_vars(t_vars *vars);

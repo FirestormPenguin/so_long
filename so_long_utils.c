@@ -6,16 +6,30 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:41:39 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 16:51:44 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:10:35 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void free_vars(t_vars *vars)
+{
+	int i;
+
+	i = 0;
+	while (vars->map[i])
+	{
+		free(vars->map[i]);
+		i++;
+	}
+	free(vars->map);
+	free(vars);
+}
+
 void error(t_vars *vars)
 {
 	printf("Error\n");
-	free (vars);
+	free_vars(vars);
 	exit(0);
 }
 
