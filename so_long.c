@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:09:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/29 18:56:57 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:41:18 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (printf("no vars\n"), 0);
 	path = av[1];
+	struct_init(vars);
 	get_map(path, vars);
 }

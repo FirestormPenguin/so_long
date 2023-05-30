@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 17:01:29 by egiubell         ###   ########.fr       */
+/*   Created: 2023/05/30 16:41:39 by egiubell          #+#    #+#             */
+/*   Updated: 2023/05/30 16:51:44 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include "./minilibx/mlx.h"
-#include "./include/get_next_line/get_next_line.h"
+#include "so_long.h"
 
-typedef struct s_vars {
-	char **map;
-	int line;
-	int column;
-	int player;
-	int collect;
-	int exit;
-}			t_vars;
+void error(t_vars *vars)
+{
+	printf("Error\n");
+	free (vars);
+	exit(0);
+}
 
-int get_map(char *path, t_vars *vars);
-
-void struct_init(t_vars *vars);
-
-void error(t_vars *vars);
+void struct_init(t_vars *vars)
+{
+	vars->line = 0;
+	vars->column = 0;
+	vars->player = 0;
+	vars->collect = 0;
+	vars->exit = 0;
+}
