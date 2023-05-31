@@ -40,7 +40,7 @@ int	checks_format(t_vars *vars)
 		{
 			j++;
 		}
-		if (j != vars->column - 1)
+		if (j != vars->column + 2)
 			return (1);
 		i++;
 	}
