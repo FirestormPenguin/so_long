@@ -27,7 +27,7 @@ int count_column(char *path)
 		i++;
 	}
 	close (fd);
-	return (i);
+	return (i - 1);
 }
 
 int count_line(char *path)

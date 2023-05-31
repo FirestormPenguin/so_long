@@ -22,13 +22,13 @@ OBJS = $(SRC:.c=.o)
 ifeq ($(shell uname), Darwin)
     MLX_LIBS += -L./minilibx -lmlx -framework OpenGL -framework AppKit
 else
-    MLX_LIBS += -L./minilibx -lmlx -lXext -lX11 -lm
+    MLX_LIBS += -L./minilibx -lmlx -lXext -lX11 -lm -lbsd
 endif
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(MAKE) > /dev/null 2>&1 --no-print-directory -C ./minilibx
+	@$(MAKE) --no-print-directory -C ./minilibx
 	@echo "\033[1m MiniLibX done \033[0m"
 	@$(CC) $(CFLAGS) $(OBJS) $(MLX_LIBS) -o $(NAME)
 	@echo "\033[1m READY TO START! \033[0m"

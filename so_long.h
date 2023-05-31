@@ -36,7 +36,7 @@ int		count_column(char *path);
 void	check_errors(t_vars *vars);
 int		checks_vars(t_vars *vars);
 int		checks_format(t_vars *vars);
-void	error(t_vars *vars);
+void	error(t_vars *vars, int id);
 
 void	struct_init(t_vars *vars);
 void	free_vars(t_vars *vars);
