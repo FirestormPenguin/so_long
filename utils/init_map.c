@@ -21,13 +21,13 @@ int count_column(char *path)
 	i = 0;
 	fd = open(path, O_RDONLY);
 	str = get_next_line(fd);
-	free(str);
 	while (str[i] != '\n')
 	{
 		i++;
 	}
+	free(str);
 	close (fd);
-	return (i - 1);
+	return (i);		//normale in 42, i -1 a casa
 }
 
 int count_line(char *path)

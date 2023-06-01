@@ -40,7 +40,7 @@ int	checks_format(t_vars *vars)
 		{
 			j++;
 		}
-		if (j != vars->column + 2)
+		if (j != vars->column + 1)		//con +1 in 42, +2 a casa, da capire
 			return (1);
 		i++;
 	}
