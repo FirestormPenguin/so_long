@@ -1,3 +1,8 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include "./minilibx/mlx.h"
 #include "so_long.h"
 
 typedef struct	s_data {
@@ -8,10 +13,10 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
+// typedef struct	s_vars {
+// 	void	*mlx;
+// 	void	*win;
+// }				t_vars;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -35,21 +40,21 @@ int	close_win(t_vars *vars)
 	return (0);
 }
 
-int render_next_frame(t_vars vars)
-{
-	void *img;
-	mlx_destroy_window(vars.mlx, vars.win);
-	vars.win = mlx_new_window(vars.mlx, 640, 480, "Finestra!");
-	printf("enter\n");
-	img = mlx_new_image(vars.mlx, 640, 480);
-	return (0);
-}
+// int render_next_frame(t_vars vars)
+// {
+// 	void *img;
+// 	mlx_destroy_window(vars.mlx, vars.win);
+// 	vars.win = mlx_new_window(vars.mlx, 640, 480, "Finestra!");
+// 	printf("enter\n");
+// 	img = mlx_new_image(vars.mlx, 640, 480);
+// 	return (0);
+// }
 
 int	main()
 {
 	t_data	*data;
 	t_vars	*vars;
-	int i;
+	//int i;
 	int y;
 	int x;
 	int img_width;
@@ -58,7 +63,7 @@ int	main()
 
 	data = (t_data *)malloc(sizeof(t_data));
 	vars = (t_vars *)malloc(sizeof(t_vars));
-	i = 50;
+	//i = 50;
 	x = 640;
 	y = 480;
 	vars->mlx = mlx_init();		//inizializza mlx
@@ -66,17 +71,17 @@ int	main()
 	printf("enter\n");
 	//data->img = mlx_new_image(vars.mlx, x, y);		//genera immagine
 	data->img = mlx_xpm_file_to_image(vars->mlx, path, &img_width, &img_height);		//genera immagine con file .xpm inserito
-	data->img = mlx_xpm_file_to_image(vars->mlx, path, &img_width, &img_height);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, &data->endian);		//gestice in maniera corretta dimensione e posizione dei pixel
-	while (i < x - 50)
-	{
-		my_mlx_pixel_put(data, i, 50, 0x00FF00FF);		//genera pixel nell'immmagine
-		i++;
-	}
+	// while (i < x - 50)
+	// {
+	// 	my_mlx_pixel_put(data, i, 50, 0x00FF00FF);		//genera pixel nell'immmagine
+	// 	i++;
+	// }
 	mlx_put_image_to_window(vars->mlx, vars->win, data->img, 0, 0);		//put immagine nella finestra
-	mlx_key_hook(vars->win, print, &vars);				//trigger evento stampa "press" nel terminale a pressione di tasto
-	mlx_hook(vars->win, 17, 0, close_win, &vars);		//trigger evento chiusura finestra pressione x rossa
-	mlx_key_hook(var->win, close_win, &vars);			//trigger evento chiusura finestra alla pressione di un tasto
-	mlx_loop_hook(vars->mlx, render_next_frame, &vars);
+	//mlx_key_hook(vars->win, print, &vars);				//trigger evento stampa "press" nel terminale a pressione di tasto
+	mlx_hook(vars->win, 17, 1L << 17, close_win, &vars);		//trigger evento chiusura finestra pressione x rossa
+	//mlx_key_hook(vars->win, close_win, &vars);			//trigger evento chiusura finestra alla pressione di un tasto
+	//mlx_loop_hook(vars->mlx, render_next_frame, &vars);
 	mlx_loop(vars->mlx);			//gestione loop finestra tenuta attiva
+	free(data->img);
 }

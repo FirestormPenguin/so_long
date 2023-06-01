@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 18:34:03 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:39:32 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ typedef struct s_vars {
 	int exit;
 }			t_vars;
 
+typedef struct s_graph {
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_graph;
+
 int		get_map(char *path, t_vars *vars);
 int		count_line(char *path);
 int		count_column(char *path);
@@ -38,7 +48,8 @@ int		checks_vars(t_vars *vars);
 int		checks_format(t_vars *vars);
 void	error(t_vars *vars, int id);
 
-void	struct_init(t_vars *vars);
 void	free_vars(t_vars *vars);
+
+void	mlx_manage(t_graph graph);
 
 #endif
