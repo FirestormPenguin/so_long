@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 19:00:05 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:03:56 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <fcntl.h>
 #include "./minilibx/mlx.h"
 #include "./include/get_next_line/get_next_line.h"
+#include "./include/ft_printf/ft_printf.h"
 
 typedef struct s_vars {
 	char	**map;
@@ -55,7 +56,11 @@ int		checks_format(t_vars *vars);
 void	error(t_vars *vars, int id);
 
 void	free_vars(t_vars *vars);
+void struct_init(t_vars *vars);
 
 void	mlx_manage(t_graph graph, t_vars *vars);
+int		close_win(t_graph *graph);
+
+void	place_image(t_graph graph, t_vars *vars, int x, int y);
 
 #endif

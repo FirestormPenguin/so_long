@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 18:50:10 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:05:02 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void error(t_vars *vars, int id)
 {
 	printf("Error\n");
 	if (id == 1)
-		printf("Edges not valid\n");
+		ft_printf("Edges not valid\n");
 	else if (id == 2)
-		printf("Found invalid character\n");
+		ft_printf("Found invalid character\n");
 	else if (id == 3)
-		printf("Number of variables invalid\n");
+		ft_printf("Number of variables invalid\n");
 	else if (id == 4)
-		printf("Lines/Columns format invalid\n");
+		ft_printf("Lines/Columns format invalid\n");
 	free_vars(vars);
 	exit(0);
 }

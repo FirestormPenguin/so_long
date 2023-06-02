@@ -6,7 +6,7 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 17:12:43 by egiubell          #+#    #+#              #
-#    Updated: 2023/06/02 19:23:30 by egiubell         ###   ########.fr        #
+#    Updated: 2023/06/02 20:03:15 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,15 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -I./include -O2 
 
 SEPARATOR = "\033[1m ******************************* \033[0m"
-SRC =	so_long.c ./utils/init_map.c ./utils/checks_errors.c ./graphics/mlx_manage.c ./utils/so_long_utils.c ./include/get_next_line/get_next_line.c
+SRC =	\
+		so_long.c \
+		./utils/init_map.c \
+		./utils/checks_errors.c \
+		./utils/so_long_utils.c \
+		./graphics/mlx_manage.c \
+		./graphics/image_manage.c \
+		./include/ft_printf/ft_printf.c \
+		./include/get_next_line/get_next_line.c
 
 OBJS = $(SRC:.c=.o)
 

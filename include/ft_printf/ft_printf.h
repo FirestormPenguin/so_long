@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 17:09:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 19:33:57 by egiubell         ###   ########.fr       */
+/*   Created: 2023/02/14 15:39:51 by egiubell          #+#    #+#             */
+/*   Updated: 2023/06/02 19:56:10 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(int ac, char **av)
-{
-	char *path;
-	t_vars *vars;
-	t_graph graph;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-	vars = (t_vars *)malloc (sizeof (t_vars));
-	if (ac != 2)
-		return (printf("no vars\n"), 0);
-	path = av[1];
-	struct_init(vars);
-	get_map(path, vars);
-	mlx_manage(graph, vars);
-}
+int		ft_printf(const char *str, ...);
+
+#endif
