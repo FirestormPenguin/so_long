@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 18:21:43 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/02 19:00:05 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ typedef struct s_graph {
 
 #define TERRAIN "./assets/terrain.xpm"
 #define WALL "./assets/wall.xpm"
+#define PLAYER "./assets/player/idle/frames_xpm/idle1.xpm"
+#define COLLECT "./assets/collect.xpm"
+#define EXIT "./assets/exit.xpm"
 
 int		get_map(char *path, t_vars *vars);
 int		count_line(char *path);
