@@ -6,11 +6,19 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:42:20 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 20:00:59 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:35:37 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putchar(char c)
+{
+	int len;
+	
+	len = write(1, &c, 1);
+	return (len);
+}
 
 int ft_putstr(char *s)
 {
@@ -51,6 +59,8 @@ int ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
+			if (s[i + 1] == 'c')
+				len += ft_putchar(va_arg(arg, int));
 			if (s[i + 1] == 's')
 				len += ft_putstr(va_arg(arg, char *));
 			if (s[i + 1] == 'd')

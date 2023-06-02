@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:54:17 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 20:09:17 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:19:42 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	close_win(t_graph *graph)
 	exit(0);
 }
 
-void mlx_manage(t_graph graph, t_vars *vars)
+void mlx_manage(t_graph graph, t_vars *vars, t_move move)
 {
     int img_width;
 	int img_height;
@@ -38,7 +38,7 @@ void mlx_manage(t_graph graph, t_vars *vars)
     graph.img_collect = mlx_xpm_file_to_image(graph.mlx, COLLECT, &img_width, &img_height);
     graph.img_exit = mlx_xpm_file_to_image(graph.mlx,EXIT, &img_width, &img_height);
     place_image(graph, vars, x, y);
-    movement(graph, vars);
+    movement(graph, move);
     mlx_hook(graph.win, 17, 1L << 17, close_win, &graph);
     mlx_loop(graph.mlx);
 }
