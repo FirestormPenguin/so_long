@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:09:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/01 17:39:38 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:40:08 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (printf("no vars\n"), 0);
 	path = av[1];
-	mlx_manage(graph);
 	get_map(path, vars);
+	mlx_manage(graph, vars);
 }

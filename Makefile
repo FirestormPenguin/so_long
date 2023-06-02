@@ -6,13 +6,13 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 17:12:43 by egiubell          #+#    #+#              #
-#    Updated: 2023/06/01 16:21:39 by egiubell         ###   ########.fr        #
+#    Updated: 2023/06/02 17:09:20 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -I./include -O2
+CFLAGS = -Wall -Wextra -Werror -g -I./include -O2 
 
 SEPARATOR = "\033[1m ******************************* \033[0m"
 SRC =	so_long.c ./utils/init_map.c ./utils/checks_errors.c mlx_manage.c ./utils/so_long_utils.c ./include/get_next_line/get_next_line.c
