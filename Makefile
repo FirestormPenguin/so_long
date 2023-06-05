@@ -6,7 +6,7 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 17:12:43 by egiubell          #+#    #+#              #
-#    Updated: 2023/06/02 20:49:11 by egiubell         ###   ########.fr        #
+#    Updated: 2023/06/05 19:27:16 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC =	\
 		./utils/so_long_utils.c \
 		./graphics/mlx_manage.c \
 		./graphics/image_manage.c \
-		./graphics/movement.c \
+		./graphics/hook_manage.c \
 		./include/ft_printf/ft_printf.c \
 		./include/get_next_line/get_next_line.c
 

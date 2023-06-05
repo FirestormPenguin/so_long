@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/05 17:53:27 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:27:28 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_game {
 #define A 97
 #define D 100
 #define S 115
+#define ESC 65307
 
 int		get_map(char *path, t_game *game);
 int		count_line(char *path);
@@ -69,10 +70,11 @@ void	free_vars(t_game *game);
 
 void	mlx_manage(t_game *game);
 int		close_win(t_graph *graph);
+int		close_esc(t_graph *graph);
 
 void	place_image(t_game *game, int x, int y);
 void    put_correct_image(t_game *game, int i, int j, int map_i, int map_j);
 
-void    movement(t_game *game);
+int		hook_manage(int keycode, t_game *game);
 
 #endif
