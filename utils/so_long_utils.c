@@ -6,22 +6,23 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:41:39 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 21:37:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:25:26 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
-void free_vars(t_vars *vars)
+void free_vars(t_game *game)
 {
 	int i;
 
 	i = 0;
-	while (vars->map[i])
+	while (game->vars->map[i])
 	{
-		free(vars->map[i]);
+		free(game->vars->map[i]);
 		i++;
 	}
-	free(vars->map);
-	free(vars);
+	free(game->vars->map);
+	free(game->vars);
+	free(game);
 }

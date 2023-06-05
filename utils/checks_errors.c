@@ -6,13 +6,13 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 20:05:02 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:28:00 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
-void error(t_vars *vars, int id)
+void error(t_game *game, int id)
 {
 	printf("Error\n");
 	if (id == 1)
@@ -23,80 +23,80 @@ void error(t_vars *vars, int id)
 		ft_printf("Number of variables invalid\n");
 	else if (id == 4)
 		ft_printf("Lines/Columns format invalid\n");
-	free_vars(vars);
+	free_vars(game);
 	exit(0);
 }
 
-int	checks_format(t_vars *vars)
+int	checks_format(t_game *game)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (vars->map[i])
+	while (game->vars->map[i])
 	{
 		j = 0;
-		while (vars->map[i][j])
+		while (game->vars->map[i][j])
 		{
 			j++;
 		}
-		if (j != vars->column + 1)		//con +1 in 42, +2 a casa, da capire
+		if (j != game->vars->column + 1)		//con +1 in 42, +2 a casa, da capire
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int checks_vars(t_vars *vars)
+int checks_vars(t_game *game)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (i < vars->line)
+	while (i < game->vars->line)
 	{
 		j= 0;
-		while (j < vars->column)
+		while (j < game->vars->column)
 		{
-			if (vars->map[i][j] == 'P')
-				vars->player++;
-			else if (vars->map[i][j] == 'C')
-				vars->collect++;
-			if (vars->map[i][j] == 'E')
-				vars->exit++;
+			if (game->vars->map[i][j] == 'P')
+				game->vars->player++;
+			else if (game->vars->map[i][j] == 'C')
+				game->vars->collect++;
+			if (game->vars->map[i][j] == 'E')
+				game->vars->exit++;
 			j++;
 		}
 		i++;
 	}
-	if (vars->player < 1 || vars-> collect < 1 || vars->exit < 1 ||
-		vars->player > 1 || vars-> exit > 1)
+	if (game->vars->player < 1 || game->vars-> collect < 1 || game->vars->exit < 1 ||
+		game->vars->player > 1 || game->vars-> exit > 1)
 		return (1);
 	return (0);
 }
 
-void check_errors(t_vars *vars)
+void check_errors(t_game *game)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (i < vars->line)
+	while (i < game->vars->line)
 	{
 		j= 0;
-		while (j < vars->column)
+		while (j < game->vars->column)
 		{
-			if ((vars->map[0][j] != '1' || vars->map[vars->line - 1][j] != '1') ||
-				(vars->map[i][0] != '1' || vars->map[i][vars->column - 1] != '1'))
-					error(vars, 1);
-			if (vars->map[i][j] != '0' && vars->map[i][j] != '1' && vars->map[i][j] != 'C' && 
-				vars->map[i][j] != 'E' && vars->map[i][j] != 'P')
-					error(vars, 2);
+			if ((game->vars->map[0][j] != '1' || game->vars->map[game->vars->line - 1][j] != '1') ||
+				(game->vars->map[i][0] != '1' || game->vars->map[i][game->vars->column - 1] != '1'))
+					error(game, 1);
+			if (game->vars->map[i][j] != '0' && game->vars->map[i][j] != '1' && game->vars->map[i][j] != 'C' && 
+				game->vars->map[i][j] != 'E' && game->vars->map[i][j] != 'P')
+					error(game, 2);
 			j++;
 		}
 		i++;
 	}
-	if (checks_vars(vars) == 1)
-		error(vars, 3);
-	if (checks_format(vars) == 1)
-		error(vars, 4);
+	if (checks_vars(game) == 1)
+		error(game, 3);
+	if (checks_format(game) == 1)
+		error(game, 4);
 }

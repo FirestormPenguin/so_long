@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 21:37:37 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:53:27 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,37 +40,39 @@ typedef struct s_graph {
 	void	*img_exit;
 }	t_graph;
 
-typedef struct s_move {
-	int	direction;
-	int	count;
-}	t_move;
+typedef struct s_game {
+	t_vars *vars;
+	t_graph graph;
+}	t_game;
 
 #define TERRAIN "./assets/terrain.xpm"
 #define WALL "./assets/wall.xpm"
 #define PLAYER "./assets/player/idle/frames_xpm/idle1.xpm"
 #define COLLECT "./assets/collect.xpm"
 #define EXIT "./assets/exit.xpm"
+
 #define W 119
 #define A 97
 #define D 100
 #define S 115
 
-int		get_map(char *path, t_vars *vars);
+int		get_map(char *path, t_game *game);
 int		count_line(char *path);
 int		count_column(char *path);
 
-void	check_errors(t_vars *vars);
-int		checks_vars(t_vars *vars);
-int		checks_format(t_vars *vars);
-void	error(t_vars *vars, int id);
+void	check_errors(t_game *game);
+int		checks_vars(t_game *game);
+int		checks_format(t_game *game);
+void	error(t_game *game, int id);
 
-void	free_vars(t_vars *vars);
+void	free_vars(t_game *game);
 
-void	mlx_manage(t_graph graph, t_vars *vars, t_move move);
+void	mlx_manage(t_game *game);
 int		close_win(t_graph *graph);
 
-void	place_image(t_graph graph, t_vars *vars, int x, int y);
+void	place_image(t_game *game, int x, int y);
+void    put_correct_image(t_game *game, int i, int j, int map_i, int map_j);
 
-void    movement(t_graph graph, t_move move);
+void    movement(t_game *game);
 
 #endif

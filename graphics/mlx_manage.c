@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:54:17 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 21:19:42 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:18:11 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@ int	close_win(t_graph *graph)
 	exit(0);
 }
 
-void mlx_manage(t_graph graph, t_vars *vars, t_move move)
+void mlx_manage(t_game *game)
 {
     int img_width;
 	int img_height;
     int x;
     int y;
     
-    x = vars->column * 128;
-    y = vars->line * 128;
+    x = game->vars->column * 128;
+    y = game->vars->line * 128;
     
-    graph.mlx = mlx_init();
-    graph.win = mlx_new_window(graph.mlx, x, y, "Finestra!!");
-    graph.img_terrain = mlx_xpm_file_to_image(graph.mlx, TERRAIN, &img_width, &img_height);
-    graph.img_wall = mlx_xpm_file_to_image(graph.mlx, WALL, &img_width, &img_height);
-    graph.img_player = mlx_xpm_file_to_image(graph.mlx, PLAYER, &img_width, &img_height);
-    graph.img_collect = mlx_xpm_file_to_image(graph.mlx, COLLECT, &img_width, &img_height);
-    graph.img_exit = mlx_xpm_file_to_image(graph.mlx,EXIT, &img_width, &img_height);
-    place_image(graph, vars, x, y);
-    movement(graph, move);
-    mlx_hook(graph.win, 17, 1L << 17, close_win, &graph);
-    mlx_loop(graph.mlx);
+    game->graph.mlx = mlx_init();
+    game->graph.win = mlx_new_window(game->graph.mlx, x, y, "Finestra!!");
+    game->graph.img_terrain = mlx_xpm_file_to_image(game->graph.mlx, TERRAIN, &img_width, &img_height);
+    game->graph.img_wall = mlx_xpm_file_to_image(game->graph.mlx, WALL, &img_width, &img_height);
+    game->graph.img_player = mlx_xpm_file_to_image(game->graph.mlx, PLAYER, &img_width, &img_height);
+    game->graph.img_collect = mlx_xpm_file_to_image(game->graph.mlx, COLLECT, &img_width, &img_height);
+    game->graph.img_exit = mlx_xpm_file_to_image(game->graph.mlx,EXIT, &img_width, &img_height);
+    place_image(game, x, y);
+    movement(game);
+    mlx_hook(game->graph.win, 17, 1L << 17, close_win, &game->graph);
+    mlx_loop(game->graph.mlx);
 }

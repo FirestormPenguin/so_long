@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:13:49 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/02 20:04:24 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:57:34 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,26 @@ int count_line(char *path)
 	return (i);
 }
 
-int get_map(char *path, t_vars *vars)
+int get_map(char *path, t_game *game)
 {
 	int i;
 	int fd;
 	char *str;
 
 	i = 0;
-	vars->line = count_line(path);
-	vars->column = count_column(path);
+	game->vars->line = count_line(path);
+	game->vars->column = count_column(path);
 	fd = open(path, O_RDONLY);
-	vars->map = malloc (sizeof(char *) * vars->line + 1);
-	while (i < vars->line)
+	game->vars->map = malloc (sizeof(char *) * game->vars->line + 1);
+	while (i < game->vars->line)
 	{
 		str = get_next_line(fd);
-		vars->map[i] = str;
-		ft_printf("%s", vars->map[i]);
+		game->vars->map[i] = str;
+		ft_printf("%s", game->vars->map[i]);
 		i++;
 	}
-	ft_printf("Line: %d\nColumn: %d\n", vars->line, vars->column);
+	ft_printf("Line: %d\nColumn: %d\n", game->vars->line, game->vars->column);
 	close (fd);
-	check_errors(vars);
-	
+	check_errors(game);
 	return (0);
 }
