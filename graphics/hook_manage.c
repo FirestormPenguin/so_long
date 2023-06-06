@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:06:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/05 19:40:21 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:40:21 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,35 @@
 
 void move(int id, t_game *game)
 {
-    int i;
-    int j;
-    int map_i;
-    int map_j;
-
-    i = 0;
-    map_i = 0;
-    while (i < game->vars->line * 128)
+    game->y_arrow = 0;
+    game->map_i = 0;
+    while (game->y_arrow < game->y)
     {
-        j = 0;
-        map_j = 0;
-        while (j < game->vars->column * 128)
+        game->x_arrow = 0;
+        game->map_j = 0;
+        while (game->x_arrow < game->x)
         {
-            if (game->vars->map[map_i][map_j] == 'P' && id == W)
+            if (game->vars->map[game->map_i][game->map_j] == 'P')
             {
-                game->vars->map[map_i][map_j] = '0';
-                mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, j, i);
-                mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_player, j, i - 128);
+                if (id == W) direction_W(id, game);
+                else if (id == S) direction_S(id, game);
+                else if (id == A) direction_A(id, game);
+                else if (id == D) direction_D(id, game);
+                return;
             }
-            j += 128;
-            map_j++;
+            game->x_arrow += TILESIZE;
+            game->map_j++;
         }
-        i += 128;
-        map_i++;
+        game->y_arrow += TILESIZE;
+        game->map_i++;
     }
 }
 
 int hook_manage(int keycode, t_game *game)
 {
     if (keycode == ESC)
-        close_esc(&game->graph);
-    if (keycode == W)
-        move(keycode, game);
-    else if (keycode == A)
-        move(keycode, game);
-    else if (keycode == D)
-        move(keycode, game);
-    else if (keycode == S)
+        close_win(&game->graph);
+    if (keycode == W || keycode == A|| keycode == D || keycode == S)
         move(keycode, game);
     return (0);
 }

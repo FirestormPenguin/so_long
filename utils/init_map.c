@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:13:49 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/05 17:57:34 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:36:22 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int count_column(char *path)
 	}
 	free(str);
 	close (fd);
-	return (i);		//normale in 42, i -1 a casa
+	return (i);
 }
 
 int count_line(char *path)

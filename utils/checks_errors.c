@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/05 17:28:00 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:36:03 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	checks_format(t_game *game)
 		{
 			j++;
 		}
-		if (j != game->vars->column + 1)		//con +1 in 42, +2 a casa, da capire
+		if (j != game->vars->column + 1)
 			return (1);
 		i++;
 	}
@@ -61,14 +61,14 @@ int checks_vars(t_game *game)
 			if (game->vars->map[i][j] == 'P')
 				game->vars->player++;
 			else if (game->vars->map[i][j] == 'C')
-				game->vars->collect++;
+				game->vars->index_collect++;
 			if (game->vars->map[i][j] == 'E')
 				game->vars->exit++;
 			j++;
 		}
 		i++;
 	}
-	if (game->vars->player < 1 || game->vars-> collect < 1 || game->vars->exit < 1 ||
+	if (game->vars->player < 1 || game->vars-> index_collect < 1 || game->vars->exit < 1 ||
 		game->vars->player > 1 || game->vars-> exit > 1)
 		return (1);
 	return (0);

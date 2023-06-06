@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/05 19:27:28 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:40:32 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_vars {
 	int		line;
 	int		column;
 	int		player;
-	int		collect;
+	int		index_collect;
 	int		exit;
 }	t_vars;
 
@@ -43,6 +43,12 @@ typedef struct s_graph {
 typedef struct s_game {
 	t_vars *vars;
 	t_graph graph;
+	int		x;
+	int		y;
+	int		map_i;
+	int		map_j;
+	int		x_arrow;
+	int		y_arrow;
 }	t_game;
 
 #define TERRAIN "./assets/terrain.xpm"
@@ -56,6 +62,7 @@ typedef struct s_game {
 #define D 100
 #define S 115
 #define ESC 65307
+#define TILESIZE 128
 
 int		get_map(char *path, t_game *game);
 int		count_line(char *path);
@@ -70,11 +77,15 @@ void	free_vars(t_game *game);
 
 void	mlx_manage(t_game *game);
 int		close_win(t_graph *graph);
-int		close_esc(t_graph *graph);
 
-void	place_image(t_game *game, int x, int y);
+void	place_image(t_game *game);
 void    put_correct_image(t_game *game, int i, int j, int map_i, int map_j);
 
 int		hook_manage(int keycode, t_game *game);
+
+void	direction_W(int id, t_game *game);
+void    direction_S(int id, t_game *game);
+void    direction_A(int id, t_game *game);
+void    direction_D(int id, t_game *game);
 
 #endif

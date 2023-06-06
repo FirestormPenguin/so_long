@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:25:45 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/05 17:21:54 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:57:24 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    put_correct_image(t_game *game, int i, int j, int map_i, int map_j)
         mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, j, i);
 }
 
-void place_image(t_game *game, int x, int y)
+void place_image(t_game *game)
 {
     int i;
     int j;
@@ -35,17 +35,17 @@ void place_image(t_game *game, int x, int y)
 
     i = 0;
     map_i = 0;
-    while (i < y)
+    while (i < game->y)
     {
         j = 0;
         map_j = 0;
-        while (j < x)
+        while (j < game->x)
         {
             put_correct_image(game, i , j, map_i, map_j);
-            j += 128;
+            j += TILESIZE;
             map_j++;
         }
-        i += 128;
+        i += TILESIZE;
         map_i++;
     }
 }
