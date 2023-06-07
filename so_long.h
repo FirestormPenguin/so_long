@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/06 17:40:32 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:13:26 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_game {
 	int		map_j;
 	int		x_arrow;
 	int		y_arrow;
+	int		move_count;
 }	t_game;
 
 #define TERRAIN "./assets/terrain.xpm"
