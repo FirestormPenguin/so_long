@@ -6,46 +6,43 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:25:45 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/06 15:57:24 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:52:45 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
-void    put_correct_image(t_game *game, int i, int j, int map_i, int map_j)
+void    put_correct_image(t_game *game)
 {
-    if (game->vars->map[map_i][map_j] == '1')
-        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_wall, j, i);
-    else if(game->vars->map[map_i][map_j] == 'P')
-        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_player, j, i);
-    else if(game->vars->map[map_i][map_j] == 'C')
-        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_collect, j, i);
-    else if(game->vars->map[map_i][map_j] == 'E')
-        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_exit, j, i);
+    if (game->vars->map[game->map_i][game->map_j] == '1')
+        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_wall, game->x_arrow, game->y_arrow);
+    else if(game->vars->map[game->map_i][game->map_j] == 'P')
+        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_player, game->x_arrow, game->y_arrow);
+    else if(game->vars->map[game->map_i][game->map_j] == 'C')
+        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_collect, game->x_arrow, game->y_arrow);
+    else if(game->vars->map[game->map_i][game->map_j] == 'E')
+        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_exit, game->x_arrow, game->y_arrow);
+    else if(game->vars->map[game->map_i][game->map_j] == 'M')
+        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_monster, game->x_arrow, game->y_arrow);
     else 
-        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, j, i);
+        mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
 }
 
 void place_image(t_game *game)
 {
-    int i;
-    int j;
-    int map_i;
-    int map_j;
-
-    i = 0;
-    map_i = 0;
-    while (i < game->y)
+    game->y_arrow = 0;
+    game->map_i = 0;
+    while (game->y_arrow < game->y)
     {
-        j = 0;
-        map_j = 0;
-        while (j < game->x)
+        game->x_arrow = 0;
+        game->map_j = 0;
+        while (game->x_arrow < game->x)
         {
-            put_correct_image(game, i , j, map_i, map_j);
-            j += TILESIZE;
-            map_j++;
+            put_correct_image(game);
+            game->x_arrow += TILESIZE;
+            game->map_j++;
         }
-        i += TILESIZE;
-        map_i++;
+        game->y_arrow += TILESIZE;
+        game->map_i++;
     }
 }

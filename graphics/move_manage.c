@@ -6,15 +6,18 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:04:37 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/07 18:24:01 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/07 20:03:41 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
-void exit_game(t_game *game)
+void exit_game(t_game *game, int id)
 {
-    close_win(&game->graph);
+    if (id == 1)
+        close_winning(&game->graph);
+    else if (id == 2)
+        close_losing(&game->graph);
 }
 
 void direction_W(int id, t_game *game)
@@ -24,10 +27,12 @@ void direction_W(int id, t_game *game)
         {
             if (game->vars->map[game->map_i - 1][game->map_j] == 'C')
                 game->vars->index_collect--;
-            if (game->vars->map[game->map_i - 1][game->map_j] == 'E' && game->vars->index_collect <= 0)
-                exit_game(game);
+            else if (game->vars->map[game->map_i - 1][game->map_j] == 'E' && game->vars->index_collect <= 0)
+                exit_game(game, 1);
             else if (game->vars->map[game->map_i - 1][game->map_j] == 'E' && game->vars->index_collect > 0)
                 return ;
+            else if (game->vars->map[game->map_i - 1][game->map_j] == 'M')
+                exit_game(game, 2);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i - 1][game->map_j] = 'P';
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
@@ -44,10 +49,12 @@ void    direction_S(int id, t_game *game)
         {
             if (game->vars->map[game->map_i + 1][game->map_j] == 'C')
                 game->vars->index_collect -= 1;
-            if (game->vars->map[game->map_i + 1][game->map_j] == 'E' && game->vars->index_collect <= 0)
-                exit_game(game);
+            else if (game->vars->map[game->map_i + 1][game->map_j] == 'E' && game->vars->index_collect <= 0)
+                exit_game(game, 1);
             else if (game->vars->map[game->map_i + 1][game->map_j] == 'E' && game->vars->index_collect > 0)
                 return ;
+            else if (game->vars->map[game->map_i + 1][game->map_j] == 'M')
+                exit_game(game, 2);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i + 1][game->map_j] = 'P';
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
@@ -64,10 +71,12 @@ void direction_A(int id, t_game *game)
         {
             if (game->vars->map[game->map_i][game->map_j - 1] == 'C')
                 game->vars->index_collect--;
-            if (game->vars->map[game->map_i][game->map_j - 1] == 'E' && game->vars->index_collect <= 0)
-                exit_game(game);
+            else if (game->vars->map[game->map_i][game->map_j - 1] == 'E' && game->vars->index_collect <= 0)
+                exit_game(game, 1);
             else if (game->vars->map[game->map_i][game->map_j - 1] == 'E' && game->vars->index_collect > 0)
                 return ;
+            else if (game->vars->map[game->map_i][game->map_j - 1] == 'M')
+                exit_game(game, 2);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i][game->map_j - 1] = 'P';
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
@@ -84,10 +93,12 @@ void direction_D(int id, t_game *game)
         {
             if (game->vars->map[game->map_i][game->map_j + 1] == 'C')
                 game->vars->index_collect--;
-            if (game->vars->map[game->map_i][game->map_j + 1] == 'E' && game->vars->index_collect <= 0)
-                exit_game(game);
+            else if (game->vars->map[game->map_i][game->map_j + 1] == 'E' && game->vars->index_collect <= 0)
+                exit_game(game, 1);
             else if (game->vars->map[game->map_i][game->map_j + 1] == 'E' && game->vars->index_collect > 0)
                 return ;
+            else if (game->vars->map[game->map_i][game->map_j + 1] == 'M')
+                exit_game(game, 2);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i][game->map_j + 1] = 'P';
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);

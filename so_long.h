@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/07 18:13:26 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/07 20:05:00 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_graph {
 	void	*img_player;
 	void	*img_collect;
 	void	*img_exit;
+	void	*img_monster;
 }	t_graph;
 
 typedef struct s_game {
@@ -57,6 +58,7 @@ typedef struct s_game {
 #define PLAYER "./assets/player/idle/frames_xpm/idle1.xpm"
 #define COLLECT "./assets/collect.xpm"
 #define EXIT "./assets/exit.xpm"
+#define MONSTER "./assets/place_holder.xpm"
 
 #define W 119
 #define A 97
@@ -74,13 +76,17 @@ int		checks_vars(t_game *game);
 int		checks_format(t_game *game);
 void	error(t_game *game, int id);
 
+int		close_winning(t_graph *graph);
+int		close_losing(t_graph *graph);
+int		pressed_x(t_graph *graph);
+
 void	free_vars(t_game *game);
 
 void	mlx_manage(t_game *game);
-int		close_win(t_graph *graph);
+
 
 void	place_image(t_game *game);
-void    put_correct_image(t_game *game, int i, int j, int map_i, int map_j);
+void    put_correct_image(t_game *game);
 
 int		hook_manage(int keycode, t_game *game);
 

@@ -6,7 +6,7 @@
 #    By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 17:12:43 by egiubell          #+#    #+#              #
-#    Updated: 2023/06/06 17:22:05 by egiubell         ###   ########.fr        #
+#    Updated: 2023/06/07 20:05:54 by egiubell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC =	\
 		./utils/init_map.c \
 		./utils/checks_errors.c \
 		./utils/so_long_utils.c \
+		./utils/exit_manage.c \
 		./graphics/mlx_manage.c \
 		./graphics/image_manage.c \
 		./graphics/hook_manage.c \
