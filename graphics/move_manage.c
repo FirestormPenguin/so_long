@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:04:37 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/07 18:19:26 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:24:01 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void exit_game(t_game *game)
 {
     close_win(&game->graph);
-    ft_printf("YOU WIN!\n");
-    exit(0);
 }
 
 void direction_W(int id, t_game *game)

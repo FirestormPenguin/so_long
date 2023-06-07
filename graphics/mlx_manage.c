@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:54:17 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/06 17:40:27 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:25:32 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@ int	close_win(t_graph *graph)
 {
 	mlx_destroy_window(graph->mlx, graph->win);
     free(graph->mlx);
-	ft_printf("Exit\n");
+	ft_printf("YOU WIN!\n");
+    exit(0);
+}
+
+int pressed_x(t_graph *graph)
+{
+    mlx_destroy_window(graph->mlx, graph->win);
+    free(graph->mlx);
+	ft_printf("Game closed\n");
 	exit(0);
 }
 
@@ -36,7 +44,7 @@ void mlx_manage(t_game *game)
     game->graph.img_collect = mlx_xpm_file_to_image(game->graph.mlx, COLLECT, &img_width, &img_height);
     game->graph.img_exit = mlx_xpm_file_to_image(game->graph.mlx,EXIT, &img_width, &img_height);
     place_image(game);
-    mlx_hook(game->graph.win, 17, 1L << 17, close_win, &game->graph);
+    mlx_hook(game->graph.win, 17, 1L << 17, pressed_x, &game->graph);
     mlx_key_hook(game->graph.win, &hook_manage, game);
     mlx_loop(game->graph.mlx);
 }
