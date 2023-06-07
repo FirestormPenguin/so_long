@@ -17,7 +17,6 @@ void exit_game(t_game *game)
     close_win(&game->graph);
     ft_printf("YOU WIN!\n");
     exit(0);
-    return (0);
 }
 
 void direction_W(int id, t_game *game)
@@ -27,10 +26,10 @@ void direction_W(int id, t_game *game)
         {
             if (game->vars->map[game->map_i - 1][game->map_j] == 'C')
                 game->vars->index_collect--;
-            if (game->vars->map[game->map_i - 1][game->map_j] == 'E' && game->vars->collect <= 0)
+            if (game->vars->map[game->map_i - 1][game->map_j] == 'E' && game->vars->index_collect <= 0)
                 exit_game(game);
-            else if (game->vars->map[game->map_i - 1][game->map_j] == 'E' && game->vars->collect > 0)
-                
+            else if (game->vars->map[game->map_i - 1][game->map_j] == 'E' && game->vars->index_collect > 0)
+                return ;
             ft_printf("%d\n", game->vars->index_collect);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i - 1][game->map_j] = 'P';
@@ -46,6 +45,10 @@ void    direction_S(int id, t_game *game)
         {
             if (game->vars->map[game->map_i + 1][game->map_j] == 'C')
                 game->vars->index_collect -= 1;
+            if (game->vars->map[game->map_i + 1][game->map_j] == 'E' && game->vars->index_collect <= 0)
+                exit_game(game);
+            else if (game->vars->map[game->map_i + 1][game->map_j] == 'E' && game->vars->index_collect > 0)
+                return ;
             ft_printf("%d\n", game->vars->index_collect);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i + 1][game->map_j] = 'P';
@@ -61,6 +64,10 @@ void direction_A(int id, t_game *game)
         {
             if (game->vars->map[game->map_i][game->map_j - 1] == 'C')
                 game->vars->index_collect--;
+            if (game->vars->map[game->map_i][game->map_j - 1] == 'E' && game->vars->index_collect <= 0)
+                exit_game(game);
+            else if (game->vars->map[game->map_i][game->map_j - 1] == 'E' && game->vars->index_collect > 0)
+                return ;
             ft_printf("%d\n", game->vars->index_collect);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i][game->map_j - 1] = 'P';
@@ -76,6 +83,10 @@ void direction_D(int id, t_game *game)
         {
             if (game->vars->map[game->map_i][game->map_j + 1] == 'C')
                 game->vars->index_collect--;
+            if (game->vars->map[game->map_i][game->map_j + 1] == 'E' && game->vars->index_collect <= 0)
+                exit_game(game);
+            else if (game->vars->map[game->map_i][game->map_j + 1] == 'E' && game->vars->index_collect > 0)
+                return ;
             ft_printf("%d\n", game->vars->index_collect);
             game->vars->map[game->map_i][game->map_j] = '0';
             game->vars->map[game->map_i][game->map_j + 1] = 'P';
