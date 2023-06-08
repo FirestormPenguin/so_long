@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/07 20:05:00 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:19:05 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int		close_losing(t_graph *graph);
 int		pressed_x(t_graph *graph);
 
 void	free_vars(t_game *game);
+char	*ft_itoa(int n);
 
 void	mlx_manage(t_game *game);
 
@@ -94,5 +95,8 @@ void	direction_W(int id, t_game *game);
 void    direction_S(int id, t_game *game);
 void    direction_A(int id, t_game *game);
 void    direction_D(int id, t_game *game);
+
+//Bonus
+void display_move_count(t_game *game)
 
 #endif
