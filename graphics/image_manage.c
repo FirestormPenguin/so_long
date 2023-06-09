@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:25:45 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 17:35:18 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:20:59 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void    put_correct_image(t_game *game)
         mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_ammo, game->x_arrow, game->y_arrow);
     else
         mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
+    display_move_count(game);
+    display_ammo(game);
 }
 
 void place_image(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 17:40:12 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:31:55 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_game {
 #define TILESIZE 128
 
 #define FRAMERATE 60
-#define ANIMATIONDELAY 20000
+#define ANIMATIONDELAY 10000
 
 int		get_map(char *path, t_game *game);
 int		count_line(char *path);
@@ -107,8 +107,8 @@ void    direction_A(int id, t_game *game);
 void    direction_D(int id, t_game *game);
 
 //Bonus
-void display_move_count(t_game *game);
-void pick_ammo(t_game *game);
-int monster_animation(t_game *game);
+void	display_move_count(t_game *game);
+int		monster_animation(t_game *game);
+void	display_ammo(t_game *game);
 
 #endif

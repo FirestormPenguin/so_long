@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:54:17 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 17:35:34 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:29:43 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void mlx_manage(t_game *game)
     
     game->x = (game->vars->column * TILESIZE);
     game->y = (game->vars->line * TILESIZE);
-    
+    game->move_count = 0;
+    game->ammo_count = 0;
     game->graph.mlx = mlx_init();
     game->graph.win = mlx_new_window(game->graph.mlx, game->x, game->y, "Finestra!!");
     game->graph.img_terrain = mlx_xpm_file_to_image(game->graph.mlx, TERRAIN, &img_width, &img_height);
