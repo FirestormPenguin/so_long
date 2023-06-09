@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:04:37 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/08 17:22:17 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:50:37 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void direction_W(int id, t_game *game)
             game->vars->map[game->map_i - 1][game->map_j] = 'P';
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_player, game->x_arrow, game->y_arrow - TILESIZE);
-            // game->move_count++;
-            // ft_printf("Move done: %d\n", game->move_count);
+            game->move_count++;
             display_move_count(game);
         }
 }
@@ -61,7 +60,7 @@ void    direction_S(int id, t_game *game)
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_player, game->x_arrow, game->y_arrow + TILESIZE);
             game->move_count++;
-            ft_printf("Move done: %d\n", game->move_count);
+            display_move_count(game);
         }
 }
 
@@ -83,7 +82,7 @@ void direction_A(int id, t_game *game)
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_player, game->x_arrow - TILESIZE, game->y_arrow);
             game->move_count++;
-            ft_printf("Move done: %d\n", game->move_count);
+            display_move_count(game);
         }
 }
 
@@ -105,6 +104,6 @@ void direction_D(int id, t_game *game)
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_terrain, game->x_arrow, game->y_arrow);
             mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_player, game->x_arrow + TILESIZE, game->y_arrow);
             game->move_count++;
-            ft_printf("Move done: %d\n", game->move_count);
+            display_move_count(game);
         }
 }
