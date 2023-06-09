@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 15:47:47 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:28:31 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_graph {
 	void	*img_collect;
 	void	*img_exit;
 	void	*img_monster;
+	void	*img_ammo;
 }	t_graph;
 
 typedef struct s_game {
@@ -51,6 +52,7 @@ typedef struct s_game {
 	int		x_arrow;
 	int		y_arrow;
 	int		move_count;
+	int		ammo_count;
 }	t_game;
 
 #define TERRAIN "./assets/terrain.xpm"
@@ -58,7 +60,8 @@ typedef struct s_game {
 #define PLAYER "./assets/player/idle/frames_xpm/idle1.xpm"
 #define COLLECT "./assets/collect.xpm"
 #define EXIT "./assets/exit.xpm"
-#define MONSTER "./assets/place_holder.xpm"
+#define MONSTER "./assets/monster.xpm"
+#define AMMO "./assets/ammo.xpm"
 
 #define W 119
 #define A 97
@@ -98,5 +101,6 @@ void    direction_D(int id, t_game *game);
 
 //Bonus
 void display_move_count(t_game *game);
+void pick_ammo(t_game *game);
 
 #endif

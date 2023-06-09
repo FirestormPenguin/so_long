@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/07 19:53:32 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:33:43 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void check_errors(t_game *game)
 				(game->vars->map[i][0] != '1' || game->vars->map[i][game->vars->column - 1] != '1'))
 					error(game, 1);
 			if (game->vars->map[i][j] != '0' && game->vars->map[i][j] != '1' && game->vars->map[i][j] != 'C' && 
-				game->vars->map[i][j] != 'E' && game->vars->map[i][j] != 'P' && game->vars->map[i][j] != 'M')
+				game->vars->map[i][j] != 'E' && game->vars->map[i][j] != 'P' && game->vars->map[i][j] != 'M' &&
+				game->vars->map[i][j] != 'A')
 					error(game, 2);
 			j++;
 		}
