@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/08 17:19:05 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:47:47 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,6 @@ void    direction_A(int id, t_game *game);
 void    direction_D(int id, t_game *game);
 
 //Bonus
-void display_move_count(t_game *game)
+void display_move_count(t_game *game);
 
 #endif
