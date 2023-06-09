@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 17:20:26 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:40:12 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_graph {
 	void	*img_collect;
 	void	*img_exit;
 	void	*img_monster;
+	void	*img_monster2;
 	void	*img_ammo;
 }	t_graph;
 
@@ -53,6 +54,8 @@ typedef struct s_game {
 	int		y_arrow;
 	int		move_count;
 	int		ammo_count;
+	double	monster_animation_timer;
+	int		monster_frame;
 }	t_game;
 
 #define TERRAIN "./assets/terrain.xpm"
@@ -61,6 +64,7 @@ typedef struct s_game {
 #define COLLECT "./assets/collect.xpm"
 #define EXIT "./assets/exit.xpm"
 #define MONSTER "./assets/monster.xpm"
+#define MONSTER2 "./assets/place_holder.xpm"
 #define AMMO "./assets/ammo.xpm"
 
 #define W 119
@@ -69,6 +73,9 @@ typedef struct s_game {
 #define S 115
 #define ESC 65307
 #define TILESIZE 128
+
+#define FRAMERATE 60
+#define ANIMATIONDELAY 20000
 
 int		get_map(char *path, t_game *game);
 int		count_line(char *path);
@@ -102,5 +109,6 @@ void    direction_D(int id, t_game *game);
 //Bonus
 void display_move_count(t_game *game);
 void pick_ammo(t_game *game);
+int monster_animation(t_game *game);
 
 #endif

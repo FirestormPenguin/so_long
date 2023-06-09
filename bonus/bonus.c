@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:30:48 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 16:37:59 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:39:11 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,19 @@ void pick_ammo(t_game *game)
     mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_wall, 128, 0);
     mlx_string_put(game->graph.mlx, game->graph.win, 178, 50, 0x00FF0000, "Ammo:");
     mlx_string_put(game->graph.mlx, game->graph.win, 178, 65, 0x00FF0000, ammo);
+}
+
+int monster_animation(t_game *game)
+{
+    game->monster_animation_timer += FRAMERATE;
+    if (game->monster_animation_timer >= ANIMATIONDELAY)
+    {
+        if (game->monster_frame == 1)
+            game->monster_frame = 2;
+        else
+          game->monster_frame = 1;
+        game->monster_animation_timer = 0;
+    }
+    place_image(game);
+    return (0);
 }

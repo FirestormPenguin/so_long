@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:54:17 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 16:20:29 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:35:34 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ void mlx_manage(t_game *game)
     game->graph.img_collect = mlx_xpm_file_to_image(game->graph.mlx, COLLECT, &img_width, &img_height);
     game->graph.img_exit = mlx_xpm_file_to_image(game->graph.mlx,EXIT, &img_width, &img_height);
     game->graph.img_monster = mlx_xpm_file_to_image(game->graph.mlx, MONSTER, &img_width, &img_height);
+    game->graph.img_monster2 = mlx_xpm_file_to_image(game->graph.mlx, MONSTER2, &img_width, &img_height);
     game->graph.img_ammo = mlx_xpm_file_to_image(game->graph.mlx, AMMO, &img_width, &img_height);
     place_image(game);
     mlx_hook(game->graph.win, 17, 1L << 17, pressed_x, &game->graph);
     mlx_key_hook(game->graph.win, &hook_manage, game);
+    mlx_loop_hook(game->graph.mlx, monster_animation, game);
     mlx_loop(game->graph.mlx);
 }

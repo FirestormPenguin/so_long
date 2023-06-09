@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:25:45 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 16:33:01 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:35:18 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ void    put_correct_image(t_game *game)
     else if(game->vars->map[game->map_i][game->map_j] == 'E')
         mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_exit, game->x_arrow, game->y_arrow);
     else if(game->vars->map[game->map_i][game->map_j] == 'M')
+    {
         mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_monster, game->x_arrow, game->y_arrow);
+        if (game->monster_frame == 1)
+            mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_monster, game->x_arrow, game->y_arrow);
+        else if (game->monster_frame == 2)
+            mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_monster2, game->x_arrow, game->y_arrow);
+    }
     else if(game->vars->map[game->map_i][game->map_j] == 'A')
         mlx_put_image_to_window(game->graph.mlx, game->graph.win, game->graph.img_ammo, game->x_arrow, game->y_arrow);
     else
