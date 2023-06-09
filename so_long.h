@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 16:28:31 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:20:26 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_game {
 
 #define TERRAIN "./assets/terrain.xpm"
 #define WALL "./assets/wall.xpm"
-#define PLAYER "./assets/player/idle/frames_xpm/idle1.xpm"
+#define PLAYER "./assets/player.xpm"
 #define COLLECT "./assets/collect.xpm"
 #define EXIT "./assets/exit.xpm"
 #define MONSTER "./assets/monster.xpm"
