@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:09:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/05 17:37:11 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 02:48:01 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	char *path;
-	t_game *game;
+	char	*path;
+	t_game	*game;
 
 	game = (t_game *)malloc (sizeof (t_game));
 	game->vars = (t_vars *)malloc (sizeof (t_vars));

@@ -6,20 +6,20 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 19:31:55 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 03:36:47 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include "./minilibx/mlx.h"
-#include "./include/get_next_line/get_next_line.h"
-#include "./include/ft_printf/ft_printf.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include "./minilibx/mlx.h"
+# include "./include/get_next_line/get_next_line.h"
+# include "./include/ft_printf/ft_printf.h"
 
 typedef struct s_vars {
 	char	**map;
@@ -44,8 +44,8 @@ typedef struct s_graph {
 }	t_graph;
 
 typedef struct s_game {
-	t_vars *vars;
-	t_graph graph;
+	t_vars	*vars;
+	t_graph	graph;
 	int		x;
 	int		y;
 	int		map_i;
@@ -58,24 +58,24 @@ typedef struct s_game {
 	int		monster_frame;
 }	t_game;
 
-#define TERRAIN "./assets/terrain.xpm"
-#define WALL "./assets/wall.xpm"
-#define PLAYER "./assets/player.xpm"
-#define COLLECT "./assets/collect.xpm"
-#define EXIT "./assets/exit.xpm"
-#define MONSTER "./assets/monster.xpm"
-#define MONSTER2 "./assets/place_holder.xpm"
-#define AMMO "./assets/ammo.xpm"
+# define TERRAIN	"./assets/terrain.xpm"
+# define WALL		"./assets/wall.xpm"
+# define PLAYER		"./assets/player.xpm"
+# define COLLECT	"./assets/collect.xpm"
+# define EXIT		"./assets/exit.xpm"
+# define MONSTER	"./assets/monster.xpm"
+# define MONSTER2	"./assets/place_holder.xpm"
+# define AMMO		"./assets/ammo.xpm"
 
-#define W 119
-#define A 97
-#define D 100
-#define S 115
-#define ESC 65307
-#define TILESIZE 128
+# define W 119
+# define A 97
+# define D 100
+# define S 115
+# define ESC 65307
+# define TILESIZE 128
 
-#define FRAMERATE 60
-#define ANIMATIONDELAY 10000
+# define FRAMERATE 60
+# define ANIMATIONDELAY 10000
 
 int		get_map(char *path, t_game *game);
 int		count_line(char *path);
@@ -95,16 +95,15 @@ char	*ft_itoa(int n);
 
 void	mlx_manage(t_game *game);
 
-
 void	place_image(t_game *game);
-void    put_correct_image(t_game *game);
+void	put_correct_image(t_game *game);
 
 int		hook_manage(int keycode, t_game *game);
 
-void	direction_W(int id, t_game *game);
-void    direction_S(int id, t_game *game);
-void    direction_A(int id, t_game *game);
-void    direction_D(int id, t_game *game);
+void	direction_w(int id, t_game *game);
+void	direction_s(int id, t_game *game);
+void	direction_a(int id, t_game *game);
+void	direction_d(int id, t_game *game);
 
 //Bonus
 void	display_move_count(t_game *game);

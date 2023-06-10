@@ -6,15 +6,15 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 16:33:43 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 04:00:01 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
 
-void error(t_game *game, int id)
+void	error(t_game *game, int id)
 {
-	printf("Error\n");
+	ft_printf ("Error\n");
 	if (id == 1)
 		ft_printf("Edges not valid\n");
 	else if (id == 2)
@@ -29,8 +29,8 @@ void error(t_game *game, int id)
 
 int	checks_format(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (game->vars->map[i])
@@ -47,15 +47,15 @@ int	checks_format(t_game *game)
 	return (0);
 }
 
-int checks_vars(t_game *game)
+int	checks_vars(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < game->vars->line)
 	{
-		j= 0;
+		j = 0;
 		while (j < game->vars->column)
 		{
 			if (game->vars->map[i][j] == 'P')
@@ -68,30 +68,32 @@ int checks_vars(t_game *game)
 		}
 		i++;
 	}
-	if (game->vars->player < 1 || game->vars-> index_collect < 1 || game->vars->exit < 1 ||
-		game->vars->player > 1 || game->vars-> exit > 1)
+	if (game->vars->player < 1 || game->vars-> index_collect < 1
+		|| game->vars->exit < 1 || game->vars->player > 1
+		|| game->vars-> exit > 1)
 		return (1);
 	return (0);
 }
 
-void check_errors(t_game *game)
+void	check_errors(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < game->vars->line)
 	{
-		j= 0;
+		j = 0;
 		while (j < game->vars->column)
 		{
 			if ((game->vars->map[0][j] != '1' || game->vars->map[game->vars->line - 1][j] != '1') ||
-				(game->vars->map[i][0] != '1' || game->vars->map[i][game->vars->column - 1] != '1'))
-					error(game, 1);
-			if (game->vars->map[i][j] != '0' && game->vars->map[i][j] != '1' && game->vars->map[i][j] != 'C' && 
-				game->vars->map[i][j] != 'E' && game->vars->map[i][j] != 'P' && game->vars->map[i][j] != 'M' &&
-				game->vars->map[i][j] != 'A')
-					error(game, 2);
+					(game->vars->map[i][0] != '1' || game->vars->map[i][game->vars->column - 1] != '1'))
+				error(game, 1);
+			if (game->vars->map[i][j] != '0' && game->vars->map[i][j] != '1' &&
+					game->vars->map[i][j] != 'C' && game->vars->map[i][j] != 'E' &&
+					game->vars->map[i][j] != 'P' && game->vars->map[i][j] != 'M' &&
+					game->vars->map[i][j] != 'A')
+				error(game, 2);
 			j++;
 		}
 		i++;
