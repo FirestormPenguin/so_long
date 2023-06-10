@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:41:39 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 03:54:33 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:12:12 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,18 @@ void	free_vars(t_game *game)
 	}
 	free(game->vars->map);
 	free(game->vars);
+	free_graph(&game->graph);
 	free(game);
+}
+
+void	free_graph(t_graph *graph)
+{
+	free(graph->img_terrain);
+	free(graph->img_wall);
+	free(graph->img_player);
+	free(graph->img_collect);
+	free(graph->img_exit);
+	free(graph->img_monster);
+	free(graph->img_monster2);
+	free(graph->img_ammo);
 }

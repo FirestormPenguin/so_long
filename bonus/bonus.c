@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:30:48 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 03:26:51 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:15:53 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	display_move_count(t_game *game)
 			50, 50, 0x00FF0000, "Move done:");
 		mlx_string_put(game->graph.mlx, game->graph.win,
 			50, 65, 0x00FF0000, move);
+		free(move);
 	}
 	else
 		return ;
@@ -43,6 +44,7 @@ void	display_ammo(t_game *game)
 			178, 50, 0x00FF0000, "Ammo:");
 		mlx_string_put(game->graph.mlx, game->graph.win,
 			178, 65, 0x00FF0000, ammo);
+		free(ammo);
 	}
 	else
 		return ;
