@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 17:23:30 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 03:53:19 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 18:31:35 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@ char	*get_next_line(int fd)
 	int		i;
 	int		rd;
 	char	c;
-	char	*buff = malloc(100000);
+	char	*buff;
 
 	i = 0;
-	rd = 0;
+	rd = 1;
+	buff = malloc(sizeof(char) * 100000);
 	if (BUFFER_SIZE <= 0)
 		return (NULL);
-	while ((rd = read(fd, &c, BUFFER_SIZE - BUFFER_SIZE + 1)) > 0)
+	while (rd > 0)
 	{
+		rd = read(fd, &c, BUFFER_SIZE - BUFFER_SIZE + 1);
 		buff[i++] = c;
 		if (c == '\n')
 			break ;
