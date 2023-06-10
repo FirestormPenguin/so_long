@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 18:04:27 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 18:26:04 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ void	put_correct_image(t_game *game);
 
 int		hook_manage(int keycode, t_game *game);
 
-void	direction_w(int id, t_game *game);
-void	direction_s(int id, t_game *game);
-void	direction_a(int id, t_game *game);
-void	direction_d(int id, t_game *game);
+void	direction_w(t_game *game);
+void	direction_s(t_game *game);
+void	direction_a(t_game *game);
+void	direction_d(t_game *game);
 
 void	place_w(t_game *game);
 void	place_s(t_game *game);

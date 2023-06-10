@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:06:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 18:17:06 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 18:26:12 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	move_select(int id, t_game *game)
 {
 	if (id == W)
-		direction_w(id, game);
+		direction_w(game);
 	else if (id == S)
-		direction_s(id, game);
+		direction_s(game);
 	else if (id == A)
-		direction_a(id, game);
+		direction_a(game);
 	else if (id == D)
-		direction_d(id, game);
+		direction_d(game);
 }
 
 void	move(int id, t_game *game)
