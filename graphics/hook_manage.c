@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:06:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 18:26:12 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:17:53 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	move(int id, t_game *game)
 int	hook_manage(int keycode, t_game *game)
 {
 	if (keycode == ESC)
-		pressed_x(&game->graph);
+		pressed_x(game);
 	if (keycode == W || keycode == A || keycode == D || keycode == S)
 		move(keycode, game);
 	return (0);

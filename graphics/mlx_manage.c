@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:54:17 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 03:29:39 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:18:06 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	mlx_manage(t_game *game)
 			game->x, game->y, "Finestra!!");
 	init_img(game);
 	place_image(game);
-	mlx_hook(game->graph.win, 17, 1L << 17, pressed_x, &game->graph);
+	mlx_hook(game->graph.win, 17, 1L << 17, pressed_x, game);
 	mlx_key_hook(game->graph.win, &hook_manage, game);
 	mlx_loop_hook(game->graph.mlx, monster_animation, game);
 	mlx_loop(game->graph.mlx);

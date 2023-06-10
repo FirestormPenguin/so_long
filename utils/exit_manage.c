@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:58:19 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 20:14:45 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:17:24 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ int	close_winning(t_game *game)
 	exit(0);
 }
 
-int	close_losing(t_graph *graph)
+int	close_losing(t_game *game)
 {
-	mlx_destroy_window(graph->mlx, graph->win);
-	free(graph->mlx);
+	close_generic(&game->graph);
+	free_vars(game);
 	ft_printf("YOU LOSE!\n");
 	exit(0);
 }
 
-int	pressed_x(t_graph *graph)
+int	pressed_x(t_game *game)
 {
-	mlx_destroy_window(graph->mlx, graph->win);
-	free(graph->mlx);
+	close_generic(&game->graph);
+	free_vars(game);
 	ft_printf("Game closed\n");
 	exit(0);
 }

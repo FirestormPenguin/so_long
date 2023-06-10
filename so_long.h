@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 20:09:56 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:18:25 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int		checks_format(t_game *game);
 void	error(t_game *game, int id);
 
 int		close_winning(t_game *game);
-int		close_losing(t_graph *graph);
-int		pressed_x(t_graph *graph);
+int		close_losing(t_game *game);
+int		pressed_x(t_game *game);
 
 void	free_vars(t_game *game);
 void	free_graph(t_graph *graph);

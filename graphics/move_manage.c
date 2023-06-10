@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:04:37 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 19:52:20 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:17:45 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	exit_game(t_game *game, int id)
 	if (id == 1)
 		close_winning(game);
 	else if (id == 2)
-		close_losing(&game->graph);
+		close_losing(game);
 }
 
 void	direction_w(t_game *game)
