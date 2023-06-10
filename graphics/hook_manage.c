@@ -6,11 +6,23 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:06:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 03:35:58 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 18:17:06 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../so_long.h"
+
+void	move_select(int id, t_game *game)
+{
+	if (id == W)
+		direction_w(id, game);
+	else if (id == S)
+		direction_s(id, game);
+	else if (id == A)
+		direction_a(id, game);
+	else if (id == D)
+		direction_d(id, game);
+}
 
 void	move(int id, t_game *game)
 {
@@ -24,14 +36,7 @@ void	move(int id, t_game *game)
 		{
 			if (game->vars->map[game->map_i][game->map_j] == 'P')
 			{
-				if (id == W)
-					direction_w(id, game);
-				else if (id == S)
-					direction_s(id, game);
-				else if (id == A)
-					direction_a(id, game);
-				else if (id == D)
-					direction_d(id, game);
+				move_select(id, game);
 				return ;
 			}
 			game->x_arrow += TILESIZE;
