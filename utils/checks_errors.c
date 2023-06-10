@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 04:00:01 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:44:40 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,15 @@ int	checks_vars(t_game *game)
 	return (0);
 }
 
+void	check_number(t_game *game, int i, int j)
+{
+	if ((game->vars->map[0][j] != '1'
+		|| game->vars->map[game->vars->line - 1][j] != '1')
+		|| (game->vars->map[i][0] != '1'
+		|| game->vars->map[i][game->vars->column - 1] != '1'))
+		error(game, 1);
+}
+
 void	check_errors(t_game *game)
 {
 	int	i;
@@ -86,13 +95,12 @@ void	check_errors(t_game *game)
 		j = 0;
 		while (j < game->vars->column)
 		{
-			if ((game->vars->map[0][j] != '1' || game->vars->map[game->vars->line - 1][j] != '1') ||
-					(game->vars->map[i][0] != '1' || game->vars->map[i][game->vars->column - 1] != '1'))
-				error(game, 1);
+			check_number(game, i, j);
 			if (game->vars->map[i][j] != '0' && game->vars->map[i][j] != '1' &&
-					game->vars->map[i][j] != 'C' && game->vars->map[i][j] != 'E' &&
-					game->vars->map[i][j] != 'P' && game->vars->map[i][j] != 'M' &&
-					game->vars->map[i][j] != 'A')
+					game->vars->map[i][j] != 'C' && game->vars->map[i][j] != 'E'
+					&& game->vars->map[i][j] != 'P'
+					&& game->vars->map[i][j] != 'M'
+					&& game->vars->map[i][j] != 'A')
 				error(game, 2);
 			j++;
 		}
