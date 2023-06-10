@@ -64,7 +64,7 @@ typedef struct s_game {
 # define COLLECT	"./assets/collect.xpm"
 # define EXIT		"./assets/exit.xpm"
 # define MONSTER	"./assets/monster.xpm"
-# define MONSTER2	"./assets/place_holder.xpm"
+# define MONSTER2	"./assets/monster2.xpm"
 # define AMMO		"./assets/ammo.xpm"
 
 # define W 119
