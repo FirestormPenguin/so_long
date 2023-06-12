@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:30:48 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 20:15:53 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:43:05 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ void	display_move_count(t_game *game)
 		mlx_string_put(game->graph.mlx, game->graph.win,
 			50, 65, 0x00FF0000, move);
 		free(move);
+		move = NULL;
 	}
 	else
+	{
+		free(move);
 		return ;
+	}
 }
 
 void	display_ammo(t_game *game)
@@ -45,9 +49,13 @@ void	display_ammo(t_game *game)
 		mlx_string_put(game->graph.mlx, game->graph.win,
 			178, 65, 0x00FF0000, ammo);
 		free(ammo);
+		ammo = NULL;
 	}
 	else
+	{
+		free(ammo);
 		return ;
+	}
 }
 
 int	monster_animation(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:19:36 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 19:38:58 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:19:18 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	checks_format(t_game *game)
 	int	j;
 
 	i = 0;
-	while (game->vars->map[i])
+	j = 0;
+	while (i < game->vars->line)
 	{
 		j = 0;
 		while (game->vars->map[i][j])
@@ -109,5 +110,9 @@ void	check_errors(t_game *game)
 	if (checks_vars(game) == 1)
 		error(game, 3);
 	if (checks_format(game) == 1)
+	{
+		printf("GG\n");
+
 		error(game, 4);
+	}
 }

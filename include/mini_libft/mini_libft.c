@@ -6,55 +6,46 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:18:13 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/09 19:29:03 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/12 16:28:21 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../../so_long.h"
 
-int	n_count(int n)
+char	*format_itoa(int mem, char *str, int size)
 {
-	size_t	i;
-	int		a;
-
-	i = 0;
-	a = n;
-	if (a == 0)
-		return (1);
-	if (a < 0)
+	while (mem > 9 || mem < -9)
 	{
-		a = -a;
-		i = 1;
+		if (mem < 0)
+			str[size--] = -(mem % 10) + '0';
+		else
+			str[size--] = mem % 10 + '0';
+		mem /= 10;
 	}
-	while (a != 0)
+	str[0] = (mem + '0');
+	if (mem < 0)
 	{
-		a = a / 10;
-		i++;
+		str[0] = '-';
+		str[1] = (-mem + '0');
 	}
-	return ((int)i);
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	size_t	i;
+	size_t	size;
+	int		mem;
 
-	i = n_count(n);
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	mem = n;
+	size = 2;
+	if (n < 0)
+		size = 3;
+	while ((n > 9 || n < -9) && size++)
+		n /= 10;
+	str = malloc((size--) * sizeof(char));
 	if (!str)
 		return (NULL);
-	if (n < 0)
-	{
-		str[0] = '-';
-		n *= -1;
-	}
-	str[i] = '\0';
-	i--;
-	while (n != 0 && str[i] != '-')
-	{
-		str[i] = (n % 10) + '0';
-		i--;
-		n /= 10;
-	}
-	return (str);
+	str[size--] = '\0';
+	return (format_itoa(mem, str, size));
 }

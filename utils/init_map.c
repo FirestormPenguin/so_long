@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:13:49 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 03:55:25 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:13:56 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	count_column(char *path)
 	{
 		i++;
 	}
+	while (str)
+	{
+		free(str);
+		str = get_next_line(fd);
+	}
 	free(str);
 	close (fd);
 	return (i);
@@ -39,11 +44,10 @@ int	count_line(char *path)
 	i = 0;
 	fd = open(path, O_RDONLY);
 	str = get_next_line(fd);
-	free(str);
 	while (str)
 	{
-		str = get_next_line(fd);
 		free(str);
+		str = get_next_line(fd);
 		i++;
 	}
 	close (fd);
