@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:04:37 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 20:17:45 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:57:14 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ void	direction_w(t_game *game)
 	{
 		if (game->vars->map[game->map_i - 1][game->map_j] == 'C')
 			game->vars->index_collect--;
-		else if (game->vars->map[game->map_i - 1][game->map_j] == 'E'
+		else if (game->vars->map[game->map_i - 1][game->map_j] == 'E' \
 				&& game->vars->index_collect <= 0)
 			exit_game(game, 1);
-		else if (game->vars->map[game->map_i - 1][game->map_j] == 'E'
+		else if (game->vars->map[game->map_i - 1][game->map_j] == 'E' \
 				&& game->vars->index_collect > 0)
 			return ;
-		else if (game->vars->map[game->map_i - 1][game->map_j] == 'M'
+		else if (game->vars->map[game->map_i - 1][game->map_j] == 'M' \
 				&& game->ammo_count <= 0)
 			exit_game(game, 2);
-		else if (game->vars->map[game->map_i - 1][game->map_j] == 'M'
+		else if (game->vars->map[game->map_i - 1][game->map_j] == 'M' \
 				&& game->ammo_count > 0)
 			game->ammo_count -= 1;
 		else if (game->vars->map[game->map_i - 1][game->map_j] == 'A')

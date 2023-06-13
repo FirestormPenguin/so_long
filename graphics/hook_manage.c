@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:06:43 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 20:17:53 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:53:20 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ int	hook_manage(int keycode, t_game *game)
 	if (keycode == ESC)
 		pressed_x(game);
 	if (keycode == W || keycode == A || keycode == D || keycode == S)
+	{
 		move(keycode, game);
+		display_move_count(game);
+		display_ammo(game);
+	}
 	return (0);
 }
