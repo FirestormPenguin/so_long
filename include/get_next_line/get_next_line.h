@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 17:23:33 by egiubell          #+#    #+#             */
-/*   Updated: 2023/05/30 17:53:08 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/13 15:38:51 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@
 # endif
 
 char	*get_next_line(int fd);
+size_t	ft_strlen(char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char *left_str, char *buff);
 
 #endif
