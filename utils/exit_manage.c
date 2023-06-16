@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:58:19 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/13 18:14:06 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/16 22:47:06 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	close_generic(t_graph *graph)
 	mlx_destroy_image(graph->mlx, graph->img_terrain);
 	mlx_destroy_image(graph->mlx, graph->img_wall);
 	mlx_destroy_image(graph->mlx, graph->img_player);
+	mlx_destroy_image(graph->mlx, graph->img_player2);
 	mlx_destroy_image(graph->mlx, graph->img_exit);
 	mlx_destroy_image(graph->mlx, graph->img_collect);
 	mlx_destroy_image(graph->mlx, graph->img_monster);

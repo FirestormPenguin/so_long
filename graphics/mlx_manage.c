@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:54:17 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/13 17:13:03 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/16 22:46:16 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_img(t_game *game)
 	WALL, &img_width, &img_height);
 	game->graph.img_player = mlx_xpm_file_to_image(game->graph.mlx, \
 	PLAYER, &img_width, &img_height);
+	game->graph.img_player2 = mlx_xpm_file_to_image(game->graph.mlx, \
+	PLAYER2, &img_width, &img_height);
 	game->graph.img_collect = mlx_xpm_file_to_image(game->graph.mlx, \
 	COLLECT, &img_width, &img_height);
 	game->graph.img_exit = mlx_xpm_file_to_image(game->graph.mlx, \

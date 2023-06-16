@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:06:40 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/10 20:18:25 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/16 22:46:04 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_graph {
 	void	*img_terrain;
 	void	*img_wall;
 	void	*img_player;
+	void	*img_player2;
 	void	*img_collect;
 	void	*img_exit;
 	void	*img_monster;
@@ -61,6 +62,7 @@ typedef struct s_game {
 # define TERRAIN	"./assets/terrain.xpm"
 # define WALL		"./assets/wall.xpm"
 # define PLAYER		"./assets/player.xpm"
+# define PLAYER2	"./assets/player2.xpm"
 # define COLLECT	"./assets/collect.xpm"
 # define EXIT		"./assets/exit.xpm"
 # define MONSTER	"./assets/monster.xpm"

@@ -6,7 +6,7 @@
 /*   By: egiubell <egiubell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 19:25:45 by egiubell          #+#    #+#             */
-/*   Updated: 2023/06/13 17:06:46 by egiubell         ###   ########.fr       */
+/*   Updated: 2023/06/16 22:55:02 by egiubell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	put_correct_image(t_game *game)
 	if (game->vars->map[game->map_i][game->map_j] == '1')
 		mlx_put_image_to_window(game->graph.mlx, game->graph.win,
 			game->graph.img_wall, game->x_arrow, game->y_arrow);
+	else if (game->vars->map[game->map_i][game->map_j] == 'P' && game->ammo_count > 0)
+		mlx_put_image_to_window(game->graph.mlx, game->graph.win,
+			game->graph.img_player2, game->x_arrow, game->y_arrow);
 	else if (game->vars->map[game->map_i][game->map_j] == 'P')
 		mlx_put_image_to_window(game->graph.mlx, game->graph.win,
 			game->graph.img_player, game->x_arrow, game->y_arrow);
